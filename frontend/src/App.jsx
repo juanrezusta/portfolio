@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Skills from './components/Skills'
+import Education from './components/Education'
 import Projects from './components/Projects'
 import Timeline from './components/Timeline'
 import SoftSkills from './components/SoftSkills'
@@ -9,11 +10,9 @@ import Certifications from './components/Certifications'
 import Contact from './components/Contact'
 import ParticlesBg from './components/ParticlesBg'
 
-// Datos de fallback (se usan si el backend no está corriendo)
 const fallback = {
   info: {
     nombre: 'Juan Rezusta',
-    rol: 'Backend Python · FastAPI · Automatización de procesos',
     disponible: true,
     ubicacion: 'Buenos Aires, AR',
     github: 'https://github.com/juanrezusta',
@@ -55,24 +54,6 @@ const fallback = {
     { categoria: 'Herramientas', icono: 'tool', tags: ['Git', 'GitHub', 'Linux', 'Telegram API', 'Mercado Pago'] },
     { categoria: 'Dominio', icono: 'truck', tags: ['Logística', 'Gestión operativa', 'Procesos', 'Automatización'] },
   ],
-  experiencia: [
-    {
-      id: 1,
-      periodo: '2022 — Presente',
-      rol: 'Formación en desarrollo de software',
-      empresa: 'UTN · Tecnicatura Universitaria en Programación + Coderhouse + EducaciónIT',
-      descripcion: 'Desde 2022 estudiando tecnologías de forma sostenida — Python, Django, FastAPI, SQL, JavaScript — combinando formación académica con cursos certificados y proyectos propios.',
-      actual: true,
-    },
-    {
-      id: 2,
-      periodo: 'Más de 10 años',
-      rol: 'Gestión de operaciones logísticas',
-      empresa: 'Alejandro Negro S.R.L.',
-      descripcion: 'Administración integral de operaciones logísticas y de distribución. Gestión de procesos administrativos, coordinación de cobros y seguimiento de pagos.',
-      actual: false,
-    },
-  ],
 }
 
 async function fetchData(endpoint) {
@@ -90,17 +71,15 @@ export default function App() {
 
   useEffect(() => {
     async function loadAll() {
-      const [info, proyectos, skills, experiencia] = await Promise.all([
+      const [info, proyectos, skills] = await Promise.all([
         fetchData('/api/info'),
         fetchData('/api/proyectos'),
         fetchData('/api/skills'),
-        fetchData('/api/experiencia'),
       ])
       setData({
         info: info ?? fallback.info,
         proyectos: proyectos ?? fallback.proyectos,
         skills: skills ?? fallback.skills,
-        experiencia: experiencia ?? fallback.experiencia,
       })
     }
     loadAll()
@@ -113,8 +92,9 @@ export default function App() {
       <main>
         <Hero info={data.info} />
         <Skills skills={data.skills} />
+        <Education />
         <Projects proyectos={data.proyectos} />
-        <Timeline experiencia={data.experiencia} />
+        <Timeline />
         <SoftSkills />
         <Certifications />
         <Contact info={data.info} />
@@ -128,7 +108,7 @@ export default function App() {
         position: 'relative',
         zIndex: 1,
       }}>
-        © 2026 Juan Rezusta · Construido con FastAPI + React
+        © 2026 Juan Rezusta · rezustack.com
       </footer>
     </>
   )

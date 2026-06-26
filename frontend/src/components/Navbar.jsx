@@ -4,9 +4,10 @@ import styles from './Navbar.module.css'
 const links = [
   { href: '#sobre-mi', label: 'Sobre mí' },
   { href: '#skills', label: 'Skills' },
+  { href: '#educacion', label: 'Educación' },
   { href: '#proyectos', label: 'Proyectos' },
   { href: '#experiencia', label: 'Experiencia' },
-  { href: '#softskills', label: 'Perfil' },
+  { href: '#softskills', label: 'Soft Skills' },
   { href: '#contacto', label: 'Contacto' },
 ]
 

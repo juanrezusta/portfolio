@@ -91,6 +91,39 @@
   margin-bottom: 2rem;
 }
 
+.counters {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.counterNum {
+  font-size: 26px;
+  font-weight: 700;
+  color: #3B82F6;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+
+.counterLabel {
+  font-size: 11px;
+  color: #475569;
+  font-weight: 500;
+}
+
+.counterDivider {
+  width: 1px;
+  height: 36px;
+  background: rgba(59, 130, 246, 0.2);
+}
+
 .ctas {
   display: flex;
   gap: 12px;

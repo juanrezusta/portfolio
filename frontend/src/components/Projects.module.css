@@ -38,11 +38,58 @@
   border: 0.5px solid rgba(30, 58, 95, 0.9);
   border-radius: 10px;
   padding: 1.25rem;
+  position: relative;
+  overflow: hidden;
   transition: border-color 0.2s, transform 0.2s;
 }
 
+.card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 10px;
+  background: conic-gradient(
+    from var(--angle, 0deg),
+    transparent 0deg,
+    #3B82F6 60deg,
+    transparent 120deg
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 0;
+  animation: rotateBorder 3s linear infinite paused;
+}
+
+.card:hover::before {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: 9px;
+  background: #1E293B;
+  z-index: 0;
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotateBorder {
+  to { --angle: 360deg; }
+}
+
 .card:hover {
-  border-color: rgba(59, 130, 246, 0.4);
   transform: translateY(-2px);
 }
 

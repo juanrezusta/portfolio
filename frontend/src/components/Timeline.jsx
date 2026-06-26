@@ -1,7 +1,18 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import styles from './Timeline.module.css'
 
-export default function Timeline({ experiencia }) {
+const experiencia = [
+  {
+    id: 1,
+    periodo: 'Más de 10 años',
+    rol: 'Gestión de operaciones logísticas',
+    empresa: 'Alejandro Negro S.R.L.',
+    descripcion: 'Administración integral de operaciones logísticas y de distribución. Gestión de procesos administrativos, coordinación de cobros y seguimiento de pagos — experiencia que hoy aplico directamente en los sistemas que desarrollo.',
+    actual: false,
+  },
+]
+
+export default function Timeline() {
   const ref = useScrollReveal()
 
   return (
@@ -9,25 +20,15 @@ export default function Timeline({ experiencia }) {
       <div className={`reveal ${styles.inner}`} ref={ref}>
         <p className={styles.label}>Trayectoria</p>
         <h2 className={styles.title}>Experiencia</h2>
-
         <div className={styles.timeline}>
-          {experiencia.map((item, idx) => (
-            <div key={item.id}>
-              {idx === 1 && (
-                <div className={styles.pivotRow}>
-                  <span className={styles.pivotLine} />
-                  <span className={styles.pivotText}>Pivot hacia tecnología</span>
-                  <span className={styles.pivotLine} />
-                </div>
-              )}
-              <div className={styles.item}>
-                <div className={`${styles.dot} ${item.actual ? styles.dotCurrent : ''}`} />
-                <div className={styles.itemContent}>
-                  <span className={styles.periodo}>{item.periodo}</span>
-                  <h3 className={styles.rol}>{item.rol}</h3>
-                  <p className={styles.empresa}>{item.empresa}</p>
-                  <p className={styles.desc}>{item.descripcion}</p>
-                </div>
+          {experiencia.map(item => (
+            <div key={item.id} className={styles.item}>
+              <div className={`${styles.dot} ${item.actual ? styles.dotCurrent : ''}`} />
+              <div className={styles.itemContent}>
+                <span className={styles.periodo}>{item.periodo}</span>
+                <h3 className={styles.rol}>{item.rol}</h3>
+                <p className={styles.empresa}>{item.empresa}</p>
+                <p className={styles.desc}>{item.descripcion}</p>
               </div>
             </div>
           ))}
