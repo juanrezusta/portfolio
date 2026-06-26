@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import styles from './Certifications.module.css'
+import { createPortal } from 'react-dom'
 
 const certs = [
   {
@@ -71,7 +72,7 @@ export default function Certifications() {
         </div>
       </div>
 
-      {selected && (
+      {selected && createPortal(
         <div className={styles.overlay} onClick={() => setSelected(null)}>
           <div className={styles.modal} onClick={e => e.stopPropagation()}>
             <button className={styles.close} onClick={() => setSelected(null)}>✕</button>
@@ -81,7 +82,8 @@ export default function Certifications() {
               <span className={styles.modalPlat}>{selected.plataforma} · {selected.fecha}</span>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   )
