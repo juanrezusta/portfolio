@@ -4,6 +4,8 @@ import Hero from './components/Hero'
 import Skills from './components/Skills'
 import Projects from './components/Projects'
 import Timeline from './components/Timeline'
+import SoftSkills from './components/SoftSkills'
+import Certifications from './components/Certifications'
 import Contact from './components/Contact'
 import ParticlesBg from './components/ParticlesBg'
 
@@ -48,18 +50,18 @@ const fallback = {
     },
   ],
   skills: [
-    { categoria: 'Backend', icono: 'server', tags: ['Python', 'FastAPI', 'PostgreSQL', 'JWT Auth', 'SQLAlchemy'] },
+    { categoria: 'Backend', icono: 'server', tags: ['Python', 'FastAPI', 'Django', 'PostgreSQL', 'SQLite', 'SQLAlchemy'] },
     { categoria: 'Frontend', icono: 'layout', tags: ['React', 'Vite', 'JavaScript', 'Tkinter', 'HTML/CSS'] },
-    { categoria: 'Herramientas', icono: 'tool', tags: ['Git', 'GitHub', 'Telegram API', 'Mercado Pago', 'BPMN'] },
+    { categoria: 'Herramientas', icono: 'tool', tags: ['Git', 'GitHub', 'Linux', 'Telegram API', 'Mercado Pago'] },
     { categoria: 'Dominio', icono: 'truck', tags: ['Logística', 'Gestión operativa', 'Procesos', 'Automatización'] },
   ],
   experiencia: [
     {
       id: 1,
-      periodo: '2026 — Presente',
-      rol: 'Estudiante · Desarrollador en formación',
-      empresa: 'UTN · Tecnicatura Universitaria en Programación',
-      descripcion: 'Cursando la carrera mientras construyo proyectos reales. Combino formación académica con desarrollo de un MVP de SaaS propio.',
+      periodo: '2022 — Presente',
+      rol: 'Formación en desarrollo de software',
+      empresa: 'UTN · Tecnicatura Universitaria en Programación + Coderhouse + EducaciónIT',
+      descripcion: 'Desde 2022 estudiando tecnologías de forma sostenida — Python, Django, FastAPI, SQL, JavaScript — combinando formación académica con cursos certificados y proyectos propios.',
       actual: true,
     },
     {
@@ -113,6 +115,8 @@ export default function App() {
         <Skills skills={data.skills} />
         <Projects proyectos={data.proyectos} />
         <Timeline experiencia={data.experiencia} />
+        <SoftSkills />
+        <Certifications />
         <Contact info={data.info} />
       </main>
       <footer style={{

@@ -2,9 +2,9 @@ import { useTyping } from '../hooks/useTyping'
 import styles from './Hero.module.css'
 
 const frases = [
-  'Backend Python · FastAPI',
+  'Backend Developer · Python',
+  'FastAPI · Django · PostgreSQL',
   'Automatización de procesos',
-  'Full Stack en formación',
   'Dev con raíces en logística',
 ]
 
@@ -30,15 +30,15 @@ export default function Hero({ info }) {
               <span className={styles.cursor}>|</span>
             </p>
             <p className={styles.desc}>
-              Construyo sistemas que resuelven problemas reales: vengo de más de una
-              década gestionando operaciones logísticas y hoy aplico esa experiencia
-              para automatizar flujos de trabajo con Python, FastAPI y React.
+              Backend Developer con más de una década en gestión operativa y logística.
+              Desde 2022 estudiando tecnologías de forma sostenida para dar un vuelco
+              deliberado hacia la industria del software.
             </p>
             <div className={styles.ctas}>
               <a href="#proyectos" className={styles.btnPrimary}>
                 Ver proyectos
               </a>
-              <a href="/assets/CV_JUANMANUELGARCIAREZUSTA.pdf" download className={styles.btnGhost}>
+              <a href="/assets/cv.pdf" download className={styles.btnGhost}>
                 Descargar CV
               </a>
             </div>
