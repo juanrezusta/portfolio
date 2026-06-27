@@ -1,5 +1,6 @@
 import MatrixTitle from './MatrixTitle'
 import { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import styles from './Certifications.module.css'
 
@@ -72,7 +73,7 @@ export default function Certifications() {
         </div>
       </div>
 
-      {selected && (
+      {selected && createPortal(
         <div className={styles.overlay} onClick={() => setSelected(null)}>
           <div className={styles.modal} onClick={e => e.stopPropagation()}>
             <button className={styles.close} onClick={() => setSelected(null)}>✕</button>
@@ -82,7 +83,8 @@ export default function Certifications() {
               <span className={styles.modalPlat}>{selected.plataforma} · {selected.fecha}</span>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   )
