@@ -76,13 +76,13 @@ export default function Certifications() {
       {selected && createPortal(
         <div className={styles.overlay} onClick={() => setSelected(null)}>
           <div className={styles.modal} onClick={e => e.stopPropagation()}>
-            <button className={styles.close} onClick={() => setSelected(null)}>✕</button>
             <img src={selected.img} alt={selected.titulo} className={styles.modalImg} />
             <div className={styles.modalInfo}>
               <span className={styles.modalTitulo}>{selected.titulo}</span>
               <span className={styles.modalPlat}>{selected.plataforma} · {selected.fecha}</span>
             </div>
           </div>
+          <button className={styles.close} onClick={() => setSelected(null)}>✕</button>
         </div>,
         document.body
       )}
