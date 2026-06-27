@@ -1,3 +1,4 @@
+import MatrixTitle from './MatrixTitle'
 import { useState, useEffect } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import styles from './Certifications.module.css'

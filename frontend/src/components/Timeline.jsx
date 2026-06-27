@@ -1,3 +1,4 @@
+import MatrixTitle from './MatrixTitle'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import styles from './Timeline.module.css'
 
