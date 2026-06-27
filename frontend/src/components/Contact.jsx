@@ -31,7 +31,7 @@ export default function Contact({ info }) {
     <section className={styles.section} id="contacto">
       <div className={`reveal ${styles.inner}`} ref={ref}>
         <p className={styles.label}>Hablemos</p>
-        <h2 className={styles.title}>Contacto</h2>
+        <MatrixTitle text="Contacto" className={styles.title} />
 
         <div className={styles.layout}>
           <div className={styles.links}>

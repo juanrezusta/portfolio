@@ -19,7 +19,7 @@ export default function Timeline() {
     <section className={styles.section} id="experiencia">
       <div className={`reveal ${styles.inner}`} ref={ref}>
         <p className={styles.label}>Trayectoria</p>
-        <h2 className={styles.title}>Experiencia</h2>
+        <MatrixTitle text="Experiencia" className={styles.title} />
         <div className={styles.timeline}>
           {experiencia.map(item => (
             <div key={item.id} className={styles.item}>

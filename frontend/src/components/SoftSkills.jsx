@@ -31,7 +31,7 @@ export default function SoftSkills() {
     <section className={styles.section} id="softskills">
       <div className={`reveal ${styles.inner}`} ref={ref}>
         <p className={styles.label}>Perfil profesional</p>
-        <h2 className={styles.title}>Soft Skills</h2>
+        <MatrixTitle text="Soft Skills" className={styles.title} />
         <div className={styles.grid}>
           {softskills.map(s => (
             <div key={s.titulo} className={styles.card}>

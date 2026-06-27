@@ -8,7 +8,7 @@ export default function Projects({ proyectos }) {
     <section className={styles.section} id="proyectos">
       <div className={`reveal ${styles.inner}`} ref={ref}>
         <p className={styles.label}>Lo que construí</p>
-        <h2 className={styles.title}>Proyectos</h2>
+        <MatrixTitle text="Proyectos" className={styles.title} />
         <div className={styles.grid}>
           {proyectos.map(p => (
             <div

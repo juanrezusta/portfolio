@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTyping } from '../hooks/useTyping'
+import { useMatrixText } from '../hooks/useMatrixText'
 import styles from './Hero.module.css'
 
 const frases = [
@@ -9,7 +10,7 @@ const frases = [
   'Dev con raíces en logística',
 ]
 
-function useCounter(target, duration = 1500, start = false) {
+function useCounter(target, duration = 1200, start = false) {
   const [count, setCount] = useState(0)
   useEffect(() => {
     if (!start) return
@@ -38,23 +39,27 @@ export default function Hero({ info }) {
     return () => observer.disconnect()
   }, [])
 
-  const años = useCounter(10, 1200, started)
-  const certs = useCounter(3, 900, started)
-  const desde = useCounter(2022, 1400, started)
+  const años = useCounter(10, 1000, started)
+  const certs = useCounter(3, 800, started)
+  const desde = useCounter(2022, 1100, started)
+
+  const badgeText = useMatrixText('Disponible para trabajar', 500, 300)
+  const nombre1 = useMatrixText('Juan', 600, 100)
+  const nombre2 = useMatrixText('Rezusta', 700, 300)
 
   return (
     <section className={styles.hero} id="sobre-mi" ref={ref}>
       <div className={styles.content}>
         <div className={styles.badge}>
           <span className={styles.dot} />
-          Disponible para trabajar
+          {badgeText}
         </div>
 
         <div className={styles.top}>
           <div className={styles.text}>
             <h1 className={styles.nombre}>
-              Juan<br />
-              <span className={styles.apellido}>Rezusta</span>
+              {nombre1}<br />
+              <span className={styles.apellido}>{nombre2}</span>
             </h1>
             <p className={styles.typing}>
               {texto}
@@ -68,17 +73,17 @@ export default function Hero({ info }) {
 
             <div className={styles.counters}>
               <div className={styles.counter}>
-                <span className={styles.counterNum}>{años}+</span>
+                <span className={styles.counterNum}>{started ? `${años}+` : '0+'}</span>
                 <span className={styles.counterLabel}>años en operaciones</span>
               </div>
               <div className={styles.counterDivider} />
               <div className={styles.counter}>
-                <span className={styles.counterNum}>{certs}</span>
+                <span className={styles.counterNum}>{started ? certs : '0'}</span>
                 <span className={styles.counterLabel}>certificados</span>
               </div>
               <div className={styles.counterDivider} />
               <div className={styles.counter}>
-                <span className={styles.counterNum}>{desde}</span>
+                <span className={styles.counterNum}>{started ? desde : '0'}</span>
                 <span className={styles.counterLabel}>aprendiendo código</span>
               </div>
             </div>

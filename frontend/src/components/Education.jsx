@@ -43,7 +43,7 @@ export default function Education() {
     <section className={styles.section} id="educacion">
       <div className={`reveal ${styles.inner}`} ref={ref}>
         <p className={styles.label}>Formación</p>
-        <h2 className={styles.title}>Educación</h2>
+        <MatrixTitle text="Educación" className={styles.title} />
         <div className={styles.timeline}>
           {educacion.map(item => (
             <div key={item.id} className={styles.item}>

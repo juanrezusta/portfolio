@@ -15,7 +15,7 @@ export default function Skills({ skills }) {
     <section className={styles.section} id="skills">
       <div className={`reveal ${styles.inner}`} ref={ref}>
         <p className={styles.label}>Stack técnico</p>
-        <h2 className={styles.title}>Skills</h2>
+        <MatrixTitle text="Skills" className={styles.title} />
         <div className={styles.grid}>
           {skills.map(s => (
             <div key={s.categoria} className={styles.card}>
